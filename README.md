@@ -1,6 +1,6 @@
 # Домашнє завдання №9
 
-Розробка "Simple Site" за макетом Figma
+Адаптація "Simple Site" до респонсивного дизайну
 
 ## Структура
 
@@ -11,4 +11,4 @@
 
 ## 🔗 Посилання
 
-(https://ecaterini.github.io/homework-9-yakovenko/)
+( https://ecaterini.github.io/homework-10-yakovenko/)
