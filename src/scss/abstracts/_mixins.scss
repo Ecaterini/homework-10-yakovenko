@@ -1,0 +1,39 @@
+@use "variables" as *;
+
+@use "sass:map";
+
+/* Центрование  flex контейнеров */
+@mixin flex-center($gap: 0) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $gap;
+}
+
+/* Медиа-миксин: @include media(md), @include media(null, sm), @include media(md, lg) */
+@mixin media($from: null, $to: null) {
+  @if $from != null and $to != null {
+    @media (min-width: map.get($breakpoints, $from)) and (max-width: map.get($breakpoints, $to)) { @content; }
+  } @else if $from != null {
+    @media (min-width: map.get($breakpoints, $from)) { @content; }
+  } @else if $to != null {
+    @media (max-width: map.get($breakpoints, $to)) { @content; }
+  }
+}
+
+/* Контейнер-миксин (ширина, max-width, горизонтальные отступы) */
+@mixin container($max: $container-primary) {
+  width: calc(100% - #{$gap-lg});
+  max-width: $max;
+  margin-inline: auto;
+}
+
+/* Скрыть визуально, но оставить для скринридеров */
+@mixin visually-hidden() {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; border: 0; padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%); clip: rect(0 0 0 0);
+  overflow: hidden; visibility: hidden;
+}

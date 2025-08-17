@@ -1,0 +1,77 @@
+@use "../abstracts" as *;
+
+.section {
+  text-align: center;
+
+  &__title {
+    margin-bottom: 50px;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: $line-height-sm;
+  }
+  &__description { color: $color-secondary; }
+}
+
+/* about */
+.about {
+  background-color: $color-light;
+  padding: 112px 0 100px;
+}
+
+/* experience */
+.experience {
+  background-color: $color-primary;
+  color: $color-white;
+  padding: 100px 0;
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap-lg;
+    justify-content: space-between;
+  }
+}
+
+.experience-item {
+  display: flex; gap: $gap;
+
+  &__description { line-height: $line-height-sm; display: flex; flex-direction: column; justify-content: space-between; }
+  &__number { font-size: 1.3125rem; font-weight: 500; }
+  &__image { order: -1; }
+  &__img { display: block; }
+}
+
+/* work */
+.work {
+  background-color: $color-light-grey;
+  padding: 100px 0;
+
+  &__description { padding-bottom: 57px; }
+}
+
+.video__iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  aspect-ratio: 16/9;
+  border: 0;
+}
+
+/* адаптив для experience с гридом для 768-1024рх и для средних экранов */
+@include media(md, lg) {
+  .header .navbar { margin-bottom: 125px; }
+  .header .navbar__list { gap: $gap-md; }
+
+  .experience__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: $gap-md;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@include media(null, md) {
+  .experience__container { justify-content: space-around; gap: $gap-md; }
+}

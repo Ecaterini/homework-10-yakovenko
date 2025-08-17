@@ -1,0 +1,21 @@
+@use "../abstracts" as *;
+
+.container { @include container($container-primary); }
+.container-sm { @include container($container-sm); }
+
+/* адаптация контейнеров */
+@include media(md, lg) {
+  .container {
+    width: calc(100% - #{$gap-md});
+    max-width: 100%;
+    padding: 0 $gap-md;
+  }
+}
+@include media(null, sm) {
+  html { line-height: $line-height-sm; }
+  .container, .container-sm {
+    width: calc(100% - #{$gap-sm});
+    max-width: 100%;
+    padding: 0 $gap-sm;
+  }
+}

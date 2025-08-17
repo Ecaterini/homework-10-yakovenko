@@ -1,0 +1,52 @@
+@use "../abstracts" as *;
+
+.header {
+  padding-top: 67px;
+  padding-bottom: 140px;
+  background-color: $color-light-grey;
+
+  .navbar {
+    margin-bottom: 145px;
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $gap-sm $gap-md;
+      margin-left: -$gap-sm;
+
+      &-link {
+        display: block;
+        letter-spacing: $letter-spacing-md;
+        padding: $gap-sm;
+        border-bottom: 2px solid transparent;
+        text-transform: uppercase;
+
+        &:hover { border-bottom-color: $color-primary; }
+        &--active { color: $color-primary; font-weight: 500; }
+      }
+    }
+  }
+
+  .content {
+    display: flex; flex-direction: column; align-items: flex-start; max-width: 540px;
+
+    &__title { margin: 0 0 45px; font-size: 3rem; font-weight: 500; }
+    &__description { margin-bottom: 55px; color: $color-secondary; }
+
+    &__link {
+      @include flex-center();
+      letter-spacing: $letter-spacing-md;
+      background-color: $color-primary;
+      color: $color-white;
+      min-height: 65px; min-width: 225px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+/* адаптив для header */
+@include media(null, md) {
+  .header .navbar { margin-bottom: 100px; }
+  .header .navbar__list { gap: $gap-sm; }
+  .header .content__title { margin: 0 0 30px; font-size: 2.5rem; }
+}
